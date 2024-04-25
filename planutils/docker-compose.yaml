@@ -1,0 +1,37 @@
+services:
+  planutils-1:
+    container_name: planutils-1
+    privileged: true
+    build:
+      context: .
+    command: planutils server --port 5555 --host 0.0.0.0
+    networks:
+      - loadbalancer
+    volumes:
+      - /dev:/dev
+
+  planutils-2:
+    container_name: planutils-2
+    privileged: true
+    build:
+      context: .
+    command: planutils server --port 5555 --host 0.0.0.0
+    networks:
+      - loadbalancer
+    volumes:
+      - /dev:/dev
+
+  loadbalancer:
+    image: nginx:latest
+    container_name: planutils-loadbalancer
+    ports:
+      - "5555:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - loadbalancer
+
+networks:
+  loadbalancer:
+    # driver: bridge
+    external: true

@@ -1,0 +1,27 @@
+{
+  "name": "new",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-basic": "tsc && node dist/index.js",
+    "start-agent1": "tsc && node dist/index1.js",
+    "start-agent2": "tsc && node dist/index2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@unitn-asa/deliveroo-js-client": "^0.0.37",
+    "cli-progress": "^3.12.0",
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module"
+}
